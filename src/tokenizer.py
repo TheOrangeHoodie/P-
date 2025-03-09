@@ -1,9 +1,4 @@
-from enum import Enum
-
-class TokenTypes(Enum):
-    _exit = 0,
-    int_lit = 1,
-    semi = 2
+from tokenTypes import TokenTypes
 
 class Token:
     def __init__(self, type, value = None):
@@ -29,7 +24,7 @@ class Tokenizer():
                     buf += self._consume()
 
                 if buf == "exit":
-                    tokenList.append(Token(TokenTypes._exit))
+                    tokenList.append(Token(TokenTypes._exit.value))
                     buf = ""
                     continue
                 else:
@@ -40,12 +35,12 @@ class Tokenizer():
                 while self._checkNextChar() != None and self._checkNextChar().isdigit():
                     buf += self._consume()
                 
-                tokenList.append(Token(TokenTypes.int_lit, buf))
+                tokenList.append(Token(TokenTypes.int_lit.value, buf))
                 buf = ""
                 continue
             elif self._checkNextChar() == ";":
                 self._consume()
-                tokenList.append(Token(TokenTypes.semi))
+                tokenList.append(Token(TokenTypes.semi.value))
                 continue
             elif self._checkNextChar().isspace():
                 self._consume()
