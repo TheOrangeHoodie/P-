@@ -1,4 +1,5 @@
 import sys
+from tokenizer import Tokenizer
 
 class WrongUseException(Exception):
     def __init__(self):
@@ -14,7 +15,10 @@ class Compiler:
             self.fileContents = file.read()
         
     def run(self):
-        pass
+        tokenizerObj = Tokenizer(self.fileContents)
+        for object in tokenizerObj.tokenize():
+            print(object.type)
+            print(object.value)
 
 
 
