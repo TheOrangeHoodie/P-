@@ -1,4 +1,5 @@
 import sys
+import os
 from tokenizer import Tokenizer
 from subprocess import call
 from tokenTypes import TokenTypes
@@ -29,6 +30,8 @@ class Compiler:
     def run(self):
         tokenizerObj = Tokenizer(self.fileContents)
         asm = self.tokenToAsm(tokenizerObj.tokenize())
+
+        os.chdir("../out")
         with open("out.asm", "wt") as file:
             file.write(asm)
 
