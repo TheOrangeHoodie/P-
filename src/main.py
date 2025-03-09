@@ -12,8 +12,6 @@ class Compiler:
         self.fileContents = None
         with open(args[1], "rt") as file:
             self.fileContents = file.read()
-
-        print(self.fileContents)
         
     def run(self):
         pass
