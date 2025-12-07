@@ -4,6 +4,8 @@ from tokenizer import Tokenizer
 from subprocess import call
 from tokenTypes import TokenTypes
 
+# commit test
+
 class Compiler:
     def __init__(self, args):
         self.args = args
